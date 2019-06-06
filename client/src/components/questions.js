@@ -9,7 +9,7 @@ function Questions(props) {
 }
 
 Questions.propTypes = {
-  content: PropTypes.string.isRequired
+	content: PropTypes.string.isRequired
 };
 
 export default Questions;
