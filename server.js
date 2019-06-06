@@ -10,5 +10,5 @@ app.use(cors());
 // app.use("/data", serverRoutes);
 
 app.listen(8080, function() {
-  console.log("server ready");
+   console.log("server ready");
 });
