@@ -1,13 +1,18 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-// const serverRoutes = require("./routes/server-routes");
+const QuizQuestions = require("./data/data");
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-// app.use("/data", serverRoutes);
+const getQuizQuestions = (req, res) => {
+   res.json(QuizQuestions);
+};
+
+app.route("/data")
+   .get(getQuizQuestions);
 
 app.listen(8080, function() {
    console.log("server ready");

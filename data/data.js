@@ -1,4 +1,4 @@
-const quizQuestions = [
+const QuizQuestions = [
   	{
    	question: "Where in the world will you need to use your satellite device?",
    	answers: [
@@ -131,4 +131,4 @@ const quizQuestions = [
   	}
 ];
 
-export default quizQuestions;
+module.exports = QuizQuestions;
