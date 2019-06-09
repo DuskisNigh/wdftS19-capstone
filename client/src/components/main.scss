@@ -1,3 +1,8 @@
+@keyframes modalShow {
+	from {top: -700px;}
+	to {top: 0;}
+}
+
 .form-containerDiv {
 	background-image: url("../assets/photo/084cfd1bc1b36c8e1e98a1da1fc2e171.jpg");
 	background-position: center;
@@ -16,15 +21,97 @@
 		width: 100%;
 		height: 75%;
 
-   	.name-input {
+		.name-input {
 			width: 100%;
-			height: 4rem;
+			height: 2rem;
 			text-indent: 1rem;
-   	}
+			background-color: #E1E1E1;
+		}
 
-   	.form-submitBttn {
-      	width: 7rem;
-      	height: 2rem;
-   	}
-  	}
+		.form-submitBttn {
+			border: 2px solid #D872A5;
+			border-radius: 50%;
+			width: 5rem;
+			height: 5rem;
+			background-color: #D872A5;
+			color: navy;
+		}
+	}
+	
+	.modal-wrapper-hide {
+   		display: none;
+	}
+
+	.modal-wrapper-show {
+		z-index: 99;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.6);
+		width: 100vw;
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		.modal-form-wrapper {
+			background: url('../assets/photo/man-hiking-in-mountains.jpg');
+			background-repeat: no-repeat;
+  			background-size: contain;
+			width: 100%;
+			height: 100vh;
+			position: fixed;
+			overflow-y: scroll;
+			animation-name: modalShow;
+			animation-duration: 0.75s;
+			animation-timing-function: ease-in;
+
+			.modal-content {
+				background: rgba(0, 0, 0, 0.3);
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-between;
+
+				.content-div1 {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+
+					.modal-header {
+						width: 100%;
+						display: flex;
+						justify-content: center;
+
+						.modal-header-h1 {
+							color: white;
+						}
+					}
+
+					.quizStart-title {
+						color: white;
+					}
+				}
+
+				.content-div2 {
+					display: flex;
+					justify-content: center;
+
+					.quizStart-link {
+						background: rgba(0, 0, 0, 0.5);
+						width: 100%;
+						text-decoration: none;
+						color: white;
+						font-size: 1rem;
+						text-align: center;
+						padding-top: 20%;
+						padding-bottom: 20%;
+						align-self: flex-end;
+					}
+				}
+			}
+		}
+	}
 }
