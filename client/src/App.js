@@ -7,12 +7,10 @@ class App extends Component {
 	render() {
 		return (
 			<BrowserRouter>
-				<div>
-					<Main />
-					<Switch>
-						<Route path="/quiz" component={Quiz} />
-					</Switch>
-				</div>
+				<Switch>
+					<Route exact path="/" component={Main} />
+					<Route exact path="/quiz" component={Quiz} />
+				</Switch>
 			</BrowserRouter>
 		);
   	}
