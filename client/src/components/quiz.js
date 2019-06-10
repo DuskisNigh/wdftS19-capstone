@@ -6,22 +6,18 @@ class Quiz extends Component {
 	state = {
 		QuizQuestions: [
 			{
-				type: "",
 				name: "",
 				question: "",
-				choices: [
+				answerKey: [
 					{
-						value1: [],
-						text1: ""
-					},
-					{
-						value2: [],
-						text2: ""
+						phones: [],
+						text: "",
+						choice: false
 					}
 				]
 			}
 		],
-		answersCount: {
+		answerCount: {
 			isatphone: 0,
 			iridiumGo: 0,
 			iridium9555: 0,
@@ -43,28 +39,46 @@ class Quiz extends Component {
 			})
 	}
 
+	onSubmitHandler = (event, question) => {
+		event.preventDefault();
+		question.answerKey.forEach(option => {
+			if (option.choice) {
+				option.phones.forEach(phone => {
+					this.setState({
+						answerCount: {
+							[phone]: this.state[phone] + 1
+						}
+					})
+				})
+			}
+		})
+	}
 	
 
 	render() {
-		return this.state.QuizQuestions.map(() => (
-			<div className="quiz-mainComponent">
-				<div className="quiz-questionNum">
-					<h2>{this.state.QuizQuestions.name}</h2>
-				</div>
-				<div className="quiz-question">
-					{this.state.QuizQuestions.question}
-				</div>
-				<div className="quiz-answerOptions">
-					<div className="quiz-answer">
-						<input type="radio" value={this.state.QuizQuestions.value1} />{this.state.QuizQuestions.text1}
+		return <form>
+			{this.state.QuizQuestions.map(item => (
+				<div key={item.name} className="quiz-mainComponent">
+					<div className="quiz-questionNum">
+						<h2>{item.name}</h2>
 					</div>
-					<div className="quiz-answer">
-						<input type="radio" value={this.state.QuizQuestions.value2} />{this.state.QuizQuestions.text2}
+					<div className="quiz-question">
+						{item.question}
+					</div>
+					<div className="quiz-answerOptions" onSubmit={this.onSubmitHandler}>
+						<div className="quiz-answer">
+							<input type="radio" name="answer1" value={item.choices} />
+							<label htmlFor="answer1"></label>
+						</div>
+						<div className="quiz-answer">
+							<input type="radio" name="answer2" value={item.choices} />
+							<label htmlFor="answer2"></label>
+						</div>
+						<button type="button" >SUBMIT</button>
 					</div>
 				</div>
-				<button type="button" >SUBMIT</button>
-			</div>
-		));
+			))}
+		</form>
 	}
 }
 

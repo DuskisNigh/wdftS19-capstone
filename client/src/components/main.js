@@ -5,25 +5,21 @@ import { Link } from 'react-router-dom';
 import './main.scss';
 
 class Main extends Component {
-	
+
 	state = {
 		QuizQuestions: [
 			{
-				type: "",
 				name: "",
 				question: "",
-				choices: [
+				answerKey: [
 					{
-						value1: [],
-						text1: ""
+						phones: [],
+						text: "",
+						choice: false
 					},
-					{
-						value2: [],
-						text2: ""
-					}
 				]
 			}
-		],		
+		],
 		answersCount: {
 			isatphone: 0,
 			iridiumGo: 0,
@@ -35,26 +31,17 @@ class Main extends Component {
 		name: '',
 	};
 
-
-	// componentDidMount() {
-	// 	axios
-	// 		.get('http://localhost:8080/data')
-	// 		.then(response => {
-	// 			this.setState({
-	// 				QuizQuestions: response.data
-	// 			});
-	// 		})
-	// 		.catch(error => {
-	// 			console.log(error)
-	// 		})
-	// }
-
-   onSubmitHandler = event => {
+	onSubmitHandler = event => {
 		event.preventDefault();
-		this.setState({ value: event.target.name.value });
+		this.setState({ 
+			name: event.target.name_input.value,
+			isShowing: true
+		}, () => {
+			console.log(this.state)
+		});
 
 	}
-	
+
 	openModalHandler = () => {
 		this.setState({
 			isShowing: true
@@ -67,13 +54,13 @@ class Main extends Component {
 		});
 	};
 
-   render() {
+	render() {
 		const modalShowHide = this.state.isShowing ? "modal-wrapper-show" : "modal-wrapper-hide";
-      return (
+		return (
 			<div className="form-containerDiv">
 				<form className="mainPage-form" onSubmit={this.onSubmitHandler}>
-					<input className="name-input" type="text" placeholder="Please Enter Your Name" />
-					<button className="form-submitBttn" onClick={this.openModalHandler} type="submit">OK</button>
+					<input name="name_input" className="name-input" type="text" placeholder="Please Enter Your Name" />
+					<button className="form-submitBttn" type="submit">OK</button>
 				</form>
 				<div className={modalShowHide}>
 					<QuizModal className="modal" show={this.state.isShowing}>
@@ -82,7 +69,7 @@ class Main extends Component {
 								<div className="modal-header">
 									<h1 className="modal-header-h1">You're On Your Way</h1>
 								</div>
-								<h2 className="quizStart-title">Hello {this.state.name.value}!</h2>
+								<h2 className="quizStart-title">Hello {this.state.name}!</h2>
 							</div>
 							<div className="content-div2">
 								<Link className="quizStart-link" to="./quiz">
@@ -93,8 +80,8 @@ class Main extends Component {
 					</QuizModal>
 				</div>
 			</div>
-      )
-   }
+		)
+	}
 }
 
 export default Main;

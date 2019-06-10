@@ -1,159 +1,164 @@
 const QuizQuestions = [
 	{
-		type: "radiogroup",
-		name: "question1",
+		name: "Question 1",
 		question: "Where in the world will you need to use your satellite device?",
-		choices: [
+		answerKey: [
 			{
-				value1: [2,3,4], 
-				text1: "Literally everywhere"
+				phones: ['iridiumGo','iridium9555','iridium9575'], 
+				text: "Literally everywhere",
+				choice: false
 			},
 			{
-				value2: [1,2,3,4],
-				text2: "Only the region I will be travelling to"
+				phones: ['isatphone','iridiumGo','iridium9555','iridium9575'],
+				text: "Only the region I will be travelling to",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question2",
+		name: "Question 2",
 		question: "How extreme are the conditions in which you will be travelling?",
-		choices: [
+		answerKey: [
 			{
-				value1: [1,2,3,4],
-				text1: "I will need the device to be dust/water proof"
+				phones: ['isatphone','iridiumGo','iridium9555','iridium9575'],
+				text: "I will need the device to be dust/water proof",
+				choice: false
 			},
 			{
-				value2: [1,2,3,4],
-				text2: "I can keep the device safe from water and dust"
+				phones: ['isatphone','iridiumGo','iridium9555','iridium9575'],
+				text: "I can keep the device safe from water and dust",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question3",
+		name: "Question 3",
 		question: "What best describes the environment of your destination?",
-		choices: [
+		answerKey: [
 			{
-				value1: [2,3,4],
-				text1: "Mountainous and/or forested"
+				phones: ['iridiumGo','iridium9555','iridium9575'],
+				text: "Mountainous and/or forested",
+				choice: false
 			},
 			{
-				value2: [1,2,3,4],
-				text2: "Open water, desert and/or tundra" 
+				phones: ['isatphone','iridiumGo','iridium9555','iridium9575'],
+				text: "Open water, desert and/or tundra" ,
+				choice: false
 			}
 		]
 	},
 {
-		type: "radiogroup",
-		name: "question4",
+		name: "Question 4",
 		question: "How will you be using your satellite device?",
-		choices: [
+		answerKey: [
 			{
-				value1: [1,2,3,4],
-				text1: "General communication with the outside world and emergencies"
+				phones: ['isatphone','iridiumGo','iridium9555','iridium9575'],
+				text: "General communication with the outside world and emergencies",
+				choice: false
 			},
 			{
-				value2: [1,2,4],
-				text2: "For emergencies only"
+				phones: ['isatphone','iridiumGo','iridium9575'],
+				text: "For emergencies only",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question5",
+		name: "Question 5",
 		question: "What will you be mainly using your device for?",
-		choices: [
+		answerKey: [
 			{
-				value1: [2],
-				text1: "Business use"
+				phones: ['iridiumGo'],
+				text: "Business use",
+				choice: false
 			},
 			{
-				value2: [1,3,4],
-				text2: "Personal use"
+				phones: ['isatphone','iridium9555','iridium9575'],
+				text: "Personal use",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question6",
+		name: "Question 6",
 		question: "Will you need to send/receive emails?",
-		choices: [
+		answerKey: [
 			{
-				value1: [1,3,4],
-				text1: "No need for email"
+				phones: ['isatphone','iridium9555','iridium9575'],
+				text: "No need for email",
+				choice: false
 			},
 			{
-				value2: [2],
-				text2: "I will need to send/receive emails"
+				phones: ['iridiumGo'],
+				text: "I will need to send/receive emails",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question7",
+		name: "Question 7",
 		question: "Are your other owned electronic devices of the latest technology?",
-		choices: [
+		answerKey: [
 			{
-				value1: [2],
-				text1: "Yea, I'm like Tony Stark over here!"
+				phones: ['iridiumGo'],
+				text: "Yea, I'm like Tony Stark over here!",
+				choice: false
 			},
 			{
-				value2: [1,3,4],
-				text2: "No, my current cell phone is a 1992 Nokia 101, so easier to use is better."
+				phones: ['isatphone','iridium9555','iridium9575'],
+				text: "No, my current cell phone is a 1992 Nokia 101, so easier to use is better.",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question8",
+		name: "Question 8",
 		question: "Do you require your device to have embedded GPS?",
-		choices: [
+		answerKey: [
 			{
-				value1: [1,2,4],
-				text1: "Absolutely"
+				phones: ['isatphone','iridiumGo','iridium9575'],
+				text: "Absolutely",
+				choice: false
 			},
 			{
-				value2: [3],
-				text2: "No thank you, I'll be fine to navigate via my trusty Sunstone here"
+				phones: ['iridium9555'],
+				text: "No thank you, I'll be fine to navigate via my trusty Sunstone here",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question9",
+		name: "Question 9",
 		question: "How many people will be using the device?",
-		choices: [
+		answerKey: [
 			{
-				value1: [1,3,4],
-				text1: "I will be using it with my by myself."
+				phones: ['isatphone','iridium9555','iridium9575'],
+				text: "I will be using it with my by myself.",
+				choice: false
 			},
 			{
-				value2: [2],
-				text2: "Me and my gang of hooligans!"
+				phones: ['iridiumGo'],
+				text: "Me and my gang of hooligans!",
+				choice: false
 			}
 		]
 	},
 	{
-		type: "radiogroup",
-		name: "question10",
+		name: "Question 10",
 		question: "What is your budget?",
-		choices: [
+		answerKey: [
 			{
-				value1: [1,2],
-				text1: "Under $1000"
+				phones: ['isatphone','iridiumGo'],
+				text: "Under $1000",
+				choice: false
 			},
 			{
-				value2: [3,4],
-				text2: "Over $1000"
+				phones: ['iridium9555','iridium9575'],
+				text: "Over $1000",
+				choice: false
 			}
 		]
 	},
-	{
-		sendResultOnPageNext: true,
-		showProgressBar: "bottom",
-		goNextPageAutomatic: true
-	}
 ];
 
 module.exports = QuizQuestions;
