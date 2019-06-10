@@ -3,6 +3,17 @@
 	to {top: 0;}
 }
 
+@keyframes zoomIn {
+	from {
+		opacity: 0;
+		transform: scale3d(0.3, 0.3, 0.3);
+	}
+
+	50% {
+		opacity: 1;
+	}
+}
+
 .form-containerDiv {
 	background-image: url("../assets/photo/084cfd1bc1b36c8e1e98a1da1fc2e171.jpg");
 	background-position: center;
@@ -29,19 +40,22 @@
 		}
 
 		.form-submitBttn {
-			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-			border: 2px solid #D872A5;
+			box-shadow: 0 9px #999;
+			border: none;
 			border-radius: 50%;
 			width: 5rem;
 			height: 5rem;
 			background-color: #D872A5;
 			color: navy;
+			padding: 15px 25px;
+			outline: none;
 		}
 
-		.form-submitBttn:hover {
-			background-color: rgb(114, 20, 67);
-			border: 2px solid rgb(114, 20, 67);
+		.form-submitBttn:active {
 			color: rgb(81, 81, 228);
+			background-color: rgb(114, 20, 67);
+			box-shadow: 0 5px #666;
+			transform: translateY(4px);
 		}
 	}
 	
@@ -94,6 +108,13 @@
 
 						.modal-header-h1 {
 							color: white;
+							animation-duration: 3s;
+							// animation-iteration-count: 3;
+						}
+
+						.zoomIn {
+							animation-name: zoomIn;
+							animation-timing-function: ease-in;
 						}
 					}
 

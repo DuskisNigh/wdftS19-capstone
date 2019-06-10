@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
+import img1 from '../assets/photo/Isatphone2.jpg';
+import './results.scss';
 
 class Result1 extends Component {
    render() {
       return (
-         <div>
-            <div></div>
-				<div>
-					<div>
-						<img src="" alt=""/>
+         <div className="results-mainDiv">
+            <div className="result-title">RESULT</div>
+				<div className="product-infoDiv">
+					<div className="product-imgDiv">
+						<img className="product-img" src={img1} alt="isatphone 2"/>
 					</div>
-					<div></div>
+               <div className="product-info">
+                  <h3 className="product-title">Inmarsat IsatPhone 2</h3>
+                  <p className="product-price">$989.00</p>
+               </div>
 				</div>
-				<div></div>   
+            <div className="result-bttnDiv">
+               <button type="button" className="resultBttn">Add to Cart</button>
+            </div>   
          </div>
       )
    }

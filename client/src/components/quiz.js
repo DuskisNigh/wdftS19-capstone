@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import './quiz.scss';
 
 class Quiz extends Component {
 
@@ -48,6 +49,7 @@ class Quiz extends Component {
 						answerCount: {
 							[phone]: this.state[phone] + 1
 						}
+						
 					})
 				})
 			}
@@ -56,25 +58,28 @@ class Quiz extends Component {
 	
 
 	render() {
-		return <form>
+		console.log(this.state.QuizQuestions);
+		return <form className="quiz-form">
 			{this.state.QuizQuestions.map(item => (
 				<div key={item.name} className="quiz-mainComponent">
-					<div className="quiz-questionNum">
-						<h2>{item.name}</h2>
-					</div>
-					<div className="quiz-question">
-						{item.question}
-					</div>
-					<div className="quiz-answerOptions" onSubmit={this.onSubmitHandler}>
-						<div className="quiz-answer">
-							<input type="radio" name="answer1" value={item.choices} />
-							<label htmlFor="answer1"></label>
+					<div className="quiz-formatDiv">
+						<div className="quiz-questionNum">
+							<h2>{item.name}</h2>
 						</div>
-						<div className="quiz-answer">
-							<input type="radio" name="answer2" value={item.choices} />
-							<label htmlFor="answer2"></label>
+						<div className="quiz-question">
+							{item.question}
 						</div>
-						<button type="button" >SUBMIT</button>
+						<div className="quiz-answerOptions" onSubmit={this.onSubmitHandler}>
+							<div className="quiz-answer">
+								<input type="radio" name="answer1" value={this.state.answerKey} />
+								<label htmlFor="answer1">{this.state.answerKey}</label>
+							</div>
+							<div className="quiz-answer">
+								<input type="radio" name="answer2" value={this.state.answerKey} />
+								<label htmlFor="answer2">{this.state.answerKey}</label>
+							</div>
+							<button className="questionBttn" type="button" >SUBMIT</button>
+						</div>
 					</div>
 				</div>
 			))}

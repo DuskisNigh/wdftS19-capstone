@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import img2 from "../assets/photo/IridiumGO.png";
 
 class Result2 extends Component {
    render() {
@@ -7,11 +8,13 @@ class Result2 extends Component {
             <div></div>
 				<div>
 					<div>
-						<img src="" alt=""/>
+						<img src={img2} alt="iridium go"/>
 					</div>
 					<div></div>
 				</div>
-				<div></div>   
+            <div>
+               <button type="button" className="resultBttn">Add to Cart</button>
+            </div>   
          </div>
       )
    }

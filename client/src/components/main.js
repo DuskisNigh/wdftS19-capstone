@@ -67,7 +67,7 @@ class Main extends Component {
 						<div className="modal-content">
 							<div className="content-div1">
 								<div className="modal-header">
-									<h1 className="modal-header-h1">You're On Your Way</h1>
+									<h1 className="modal-header-h1 animated zoomIn">You're On Your Way</h1>
 								</div>
 								<h2 className="quizStart-title">Hello {this.state.name}!</h2>
 							</div>
