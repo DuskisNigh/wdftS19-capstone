@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import update from 'immutability-helper';
 import './quiz.scss';
 
 class Quiz extends Component {
@@ -18,7 +19,7 @@ class Quiz extends Component {
 				]
 			}
 		],
-		answerCount: {
+		answersCount: {
 			isatphone: 0,
 			iridiumGo: 0,
 			iridium9555: 0,
@@ -36,31 +37,43 @@ class Quiz extends Component {
 				});
 			})
 			.catch(error => {
-				console.log(error)
-			})
+				console.log(error);
+			});
+	};
+
+	onSubmitHandler = (event) => {
+		event.preventDefault();
+		const answers = this.state.QuizQuestions
+			.map(question => question.answerKey)
+			.flat()
+			.filter(answer => answer.choice);
+
+		// answers.forEach((e,i) => {
+		// 	e.phones = answers[i].phones
+		// 	console.log(answers[i].phones);
+		// });
+		
+		console.log(answers);
 	}
 
-	onSubmitHandler = (event, question) => {
-		event.preventDefault();
-		question.answerKey.forEach(option => {
-			if (option.choice) {
-				option.phones.forEach(phone => {
-					this.setState({
-						answerCount: {
-							[phone]: this.state[phone] + 1
-						}
-						
-					})
-				})
-			}
-		})
+	setUserAnswer(answer) {
+		const updatedAnswersCount = update(this.state.answersCount, {
+			[answer]: { $apply: (currentValue) => currentValue + 1 }
+		});
+
+		this.setState({
+			answersCount: updatedAnswersCount,
+		});
 	}
-	
+
+	updateAnswer = (event, answer) => {
+		answer.choice = event.target.checked;
+	}
+
 
 	render() {
-		console.log(this.state.QuizQuestions);
-		return <form className="quiz-form">
-			{this.state.QuizQuestions.map(item => (
+		return <form className="quiz-form" onSubmit={this.onSubmitHandler}>
+			{this.state.QuizQuestions.map((item, index) => (
 				<div key={item.name} className="quiz-mainComponent">
 					<div className="quiz-formatDiv">
 						<div className="quiz-questionNum">
@@ -69,20 +82,22 @@ class Quiz extends Component {
 						<div className="quiz-question">
 							{item.question}
 						</div>
-						<div className="quiz-answerOptions" onSubmit={this.onSubmitHandler}>
-							<div className="quiz-answer">
-								<input type="radio" name="answer1" value={this.state.answerKey} />
-								<label htmlFor="answer1">{this.state.answerKey}</label>
-							</div>
-							<div className="quiz-answer">
-								<input type="radio" name="answer2" value={this.state.answerKey} />
-								<label htmlFor="answer2">{this.state.answerKey}</label>
-							</div>
-							<button className="questionBttn" type="button" >SUBMIT</button>
+						<div className="quiz-answerOptions">
+							{item.answerKey.map((answer, answerIndex) => (
+								<div key={answerIndex} className="quiz-answer">
+									<input
+										onChange={e => this.updateAnswer(e, answer)}
+										type="radio"
+										name={`${item.name}${answerIndex}`}
+										value={item.name} />
+									<label htmlFor={`${item.name}${answerIndex}`}>{answer.text}</label>
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
 			))}
+			<button className="questionBttn" type="submit" >SUBMIT</button>
 		</form>
 	}
 }

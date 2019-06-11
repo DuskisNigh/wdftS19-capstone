@@ -59,7 +59,7 @@ class Main extends Component {
 		return (
 			<div className="form-containerDiv">
 				<form className="mainPage-form" onSubmit={this.onSubmitHandler}>
-					<input name="name_input" className="name-input" type="text" placeholder="Please Enter Your Name" />
+					<input name="name_input" className="name-input" type="text" placeholder="Please Enter Your Name" required />
 					<button className="form-submitBttn" type="submit">OK</button>
 				</form>
 				<div className={modalShowHide}>

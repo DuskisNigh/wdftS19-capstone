@@ -13,7 +13,7 @@ class Result1 extends Component {
 					</div>
                <div className="product-info">
                   <h3 className="product-title">Inmarsat IsatPhone 2</h3>
-                  <p className="product-price">$989.00</p>
+                  <p className="product-price">$750.00 USD</p>
                </div>
 				</div>
             <div className="result-bttnDiv">
