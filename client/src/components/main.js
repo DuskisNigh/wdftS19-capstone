@@ -20,13 +20,8 @@ class Main extends Component {
 				]
 			}
 		],
-		answersCount: {
-			isatphone: 0,
-			iridiumGo: 0,
-			iridium9555: 0,
-			iridium9575: 0
-		},
-		result: '',
+		answersCount: null,
+		result: null,
 		isShowing: false,
 		name: '',
 	};

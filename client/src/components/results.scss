@@ -58,7 +58,7 @@
 
      .result-bttnDiv {
 
-          .resultBttn {
+          .resultBttn button {
                box-shadow: 0 9px #999;
 			border: none;
 			border-radius: 50%;
@@ -70,7 +70,7 @@
                outline: none;
           }
 
-          .resultBttn:active {
+          .resultBttn button:active {
                background-color: #3e8e41;
                box-shadow: 0 5px #666;
                transform: translateY(4px);
