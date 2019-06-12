@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import img2 from "../assets/photo/IridiumGO.png";
+import { Link } from "react-router-dom";
 import "./results.scss";
 
 class Result2 extends Component {
@@ -17,7 +18,9 @@ class Result2 extends Component {
                </div>
 				</div>
             <div className="result-bttnDiv">
-               <button type="button" className="resultBttn">Add to Cart</button>
+               <Link className="resultBttn" to="/cart">
+                  <button type="button">Add to Cart</button>
+               </Link>
             </div>   
          </div>
       )

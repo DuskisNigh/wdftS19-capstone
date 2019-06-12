@@ -15,20 +15,31 @@
 }
 
 .form-containerDiv {
-	background-image: url("../assets/photo/084cfd1bc1b36c8e1e98a1da1fc2e171.jpg");
+	background-image: url("../assets/photo/northernLights.jpg");
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100vh;
 	margin: 0;
+
+	.main-title {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.main-titleLogo {
+			width: 100%;
+		}
+	}
 
   	.mainPage-form {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-evenly;
 		width: 100%;
 		height: 75%;
 
@@ -47,7 +58,7 @@
 			height: 5rem;
 			background-color: #D872A5;
 			color: navy;
-			padding: 15px 25px;
+			padding: 5px 25px;
 			outline: none;
 		}
 

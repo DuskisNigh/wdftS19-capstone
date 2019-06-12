@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import QuizModal from './quizModal';
 import { Link } from 'react-router-dom';
+import Logo from '../assets/photo/logo.png';
 import './main.scss';
 
 class Main extends Component {
@@ -53,6 +53,9 @@ class Main extends Component {
 		const modalShowHide = this.state.isShowing ? "modal-wrapper-show" : "modal-wrapper-hide";
 		return (
 			<div className="form-containerDiv">
+				<div className="main-title">
+					<img className="main-titleLogo" src={Logo} alt="logo"/>
+				</div>
 				<form className="mainPage-form" onSubmit={this.onSubmitHandler}>
 					<input name="name_input" className="name-input" type="text" placeholder="Please Enter Your Name" required />
 					<button className="form-submitBttn" type="submit">OK</button>

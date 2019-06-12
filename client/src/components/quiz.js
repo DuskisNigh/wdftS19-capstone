@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import './quiz.scss';
 
 class Quiz extends Component {
@@ -19,12 +19,6 @@ class Quiz extends Component {
 				]
 			}
 		],
-		// answersCount: {
-		// 	isatphone: 0,
-		// 	iridiumGo: 0,
-		// 	iridium9555: 0,
-		// 	iridium9575: 0
-		// },
 		answersCount: null,
 		result: null,
 		phonePageMapping: {
@@ -63,14 +57,13 @@ class Quiz extends Component {
 				return accumulator
 			}, {})
 		
-		// this.setState({answersCount: phones})
 
 		const values = Object.values(phones)
 		const productRecommendation = Math.max(...values)
 		const result = Object.entries(phones)
 			.find(([key, value]) => value === productRecommendation)[0]
 
-		this.setState({result})
+			this.setState({result})
 
 		console.log({values, productRecommendation, result})
 
@@ -112,7 +105,8 @@ class Quiz extends Component {
 										onChange={e => this.updateAnswer(e, answer)}
 										type="radio"
 										name={item.name}
-										value={item.name} />
+										value={item.name}
+										id={`${item.name}${answerIndex}`} />
 									<label htmlFor={`${item.name}${answerIndex}`}>{answer.text}</label>
 								</div>
 							))}
